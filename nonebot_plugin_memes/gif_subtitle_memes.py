@@ -21,7 +21,7 @@ def make_gif(
         texts = list(examples)
 
     if len(texts) != len(pieces):
-        return f"该表情包需要加{len(pieces)}段文字，不加可查看示例图片"
+        return f"该表情包需要加{len(pieces)}段文字(各段文字用空格分隔)，不加可查看示例图片"
 
     img = load_image(f"gif/{filename}").image
     frames: List[BuildImage] = []

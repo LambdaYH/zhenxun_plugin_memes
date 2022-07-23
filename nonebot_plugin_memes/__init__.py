@@ -25,6 +25,29 @@ __plugin_meta__ = PluginMetadata(
     },
 )
 
+__zx_plugin_name__ = "表情包制作"
+__plugin_usage__ = """
+Usage:
+    触发方式：指令 + 文字 (部分表情包需要多段文字)
+    发送“表情包制作”查看表情包列表
+    （静态表情的参数个数如果不对将不会响应）
+    例子：
+        五年怎么过的.gif 我 在 哪 里
+        举牌 rua
+        可达鸭 左手 右手
+""".strip()
+__plugin_des__ = "生成各种表情包"
+__plugin_type__ = ("好玩的",)
+__plugin_version__ = 0.3
+__plugin_cmd__ = ["表情包制作"]
+__plugin_author__ = "meetwq"
+
+__plugin_settings__ = {
+    "level": 5,
+    "default_status": True,
+    "limit_superuser": False,
+    "cmd": [],
+}
 
 help_cmd = on_command("表情包制作", block=True, priority=12)
 

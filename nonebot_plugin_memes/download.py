@@ -34,7 +34,7 @@ async def download_url(url: str) -> bytes:
 
 
 def resource_url(path: str) -> str:
-    return f"https://fastly.jsdelivr.net/gh/noneplugin/nonebot-plugin-memes@vv0.3.x/resources/{path}"
+    return f"https://raw.githubusercontent.com/MigangBot/zhenxun_plugin_memes/v0.3.x/resources/{path}"
 
 
 async def download_resource(path: str) -> bytes:
