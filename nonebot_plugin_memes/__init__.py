@@ -13,17 +13,17 @@ from .depends import regex
 from .data_source import memes
 from .utils import Meme, help_image
 
-__plugin_meta__ = PluginMetadata(
-    name="表情包制作",
-    description="生成各种表情包",
-    usage="触发方式：指令 + 文字 (部分表情包需要多段文字)\n发送“表情包制作”查看表情包列表",
-    extra={
-        "unique_name": "memes",
-        "example": "鲁迅说 我没说过这句话\n举牌 aya大佬带带我",
-        "author": "meetwq <meetwq@gmail.com>",
-        "version": "0.3.3",
-    },
-)
+# __plugin_meta__ = PluginMetadata(
+#     name="表情包制作",
+#     description="生成各种表情包",
+#     usage="触发方式：指令 + 文字 (部分表情包需要多段文字)\n发送“表情包制作”查看表情包列表",
+#     extra={
+#         "unique_name": "memes",
+#         "example": "鲁迅说 我没说过这句话\n举牌 aya大佬带带我",
+#         "author": "meetwq <meetwq@gmail.com>",
+#         "version": "0.3.3",
+#     },
+# )
 
 __zx_plugin_name__ = "表情包制作"
 __plugin_usage__ = """
