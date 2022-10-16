@@ -1,6 +1,8 @@
 from io import BytesIO
 from PIL import ImageFilter
 from typing import List, Union
+from typing_extensions import Literal
+
 from nonebot.params import Depends
 from nonebot.utils import run_sync
 from nonebot.matcher import Matcher
@@ -39,7 +41,7 @@ from .manager import meme_manager, ActionResult, MemeMode
 #         "unique_name": "memes",
 #         "example": "鲁迅说 我没说过这句话\n举牌 aya大佬带带我",
 #         "author": "meetwq <meetwq@gmail.com>",
-#         "version": "0.3.4",
+#         "version": "0.3.5",
 #     },
 # )
 
@@ -70,11 +72,11 @@ __plugin_settings__ = {
 PERM_EDIT = GROUP_ADMIN | GROUP_OWNER | PRIVATE_FRIEND | SUPERUSER
 PERM_GLOBAL = SUPERUSER
 
-help_cmd = on_command("表情包制作", block=True, priority=12)
-block_cmd = on_command("禁用表情", block=True, priority=12, permission=PERM_EDIT)
-unblock_cmd = on_command("启用表情", block=True, priority=12, permission=PERM_EDIT)
-block_cmd_gl = on_command("全局禁用表情", block=True, priority=12, permission=PERM_GLOBAL)
-unblock_cmd_gl = on_command("全局启用表情", block=True, priority=12, permission=PERM_GLOBAL)
+help_cmd = on_command("文字表情包", aliases={"文字相关表情包", "文字相关表情制作","表情包制作"}, block=True, priority=12)
+block_cmd = on_command("禁用文字表情", block=True, priority=12, permission=PERM_EDIT)
+unblock_cmd = on_command("启用文字表情", block=True, priority=12, permission=PERM_EDIT)
+block_cmd_gl = on_command("全局禁用文字表情", block=True, priority=12, permission=PERM_GLOBAL)
+unblock_cmd_gl = on_command("全局启用文字表情", block=True, priority=12, permission=PERM_GLOBAL)
 
 
 @run_sync
@@ -231,8 +233,12 @@ async def _(matcher: Matcher, msg: Message = CommandArg()):
 def create_matchers():
     def handler(meme: Meme) -> T_Handler:
         async def handle(
-            matcher: Matcher, res: Union[str, BytesIO] = Depends(meme.func)
+            matcher: Matcher,
+            flag: Literal[True] = check_flag(meme),
+            res: Union[str, BytesIO] = Depends(meme.func),
         ):
+            if not flag:
+                return
             matcher.stop_propagation()
             if isinstance(res, str):
                 await matcher.finish(res)
