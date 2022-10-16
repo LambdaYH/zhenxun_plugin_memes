@@ -60,11 +60,30 @@ def goodnews(text: str = Arg()):
             text,
             allow_wrap=True,
             lines_align="center",
-            max_fontsize=50,
+            max_fontsize=60,
             min_fontsize=30,
             fill=(238, 0, 0),
             stroke_ratio=1 / 15,
             stroke_fill=(255, 255, 153),
+        )
+    except ValueError:
+        return OVER_LENGTH_MSG
+    return frame.save_png()
+
+
+def badnews(text: str = Arg()):
+    frame = load_image("badnews/0.png")
+    try:
+        frame.draw_text(
+            (50, 100, frame.width - 50, frame.height - 100),
+            text,
+            allow_wrap=True,
+            lines_align="center",
+            max_fontsize=60,
+            min_fontsize=30,
+            fill=(0, 0, 0),
+            stroke_ratio=1 / 15,
+            stroke_fill="white",
         )
     except ValueError:
         return OVER_LENGTH_MSG
@@ -362,3 +381,22 @@ def psyduck(texts: List[str] = Args(2)):
                 frame.paste(right_img.perspective(points), pos, alpha=True)
         frames.append(frame.image)
     return save_gif(frames, 0.2)
+
+
+def scratchoff(text: str = Arg()):
+    frame = load_image("scratchoff/0.png")
+    try:
+        frame.draw_text(
+            (80, 160, 360, 290),
+            text,
+            allow_wrap=True,
+            max_fontsize=80,
+            min_fontsize=40,
+            fill="white",
+            lines_align="center",
+        )
+    except ValueError:
+        return OVER_LENGTH_MSG
+    mask = load_image("scratchoff/1.png")
+    frame.paste(mask, alpha=True)
+    return frame.save_jpg()
