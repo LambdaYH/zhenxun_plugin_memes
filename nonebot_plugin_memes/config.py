@@ -5,7 +5,7 @@ from nonebot import get_driver
 
 
 class Config(BaseModel, extra=Extra.ignore):
-    memes_command_start: str = ""
+    memes_command_start: List[str] = [""]
     memes_resource_url: str = "https://raw.githubusercontent.com/MigangBot/zhenxun_plugin_memes/v0.3.x/resources"
     memes_disabled_list: List[str] = []
 
