@@ -10,7 +10,7 @@ _✨ [Nonebot2](https://github.com/nonebot/nonebot2) 插件，用于文字类表
 
 <p align="center">
   <img src="https://img.shields.io/github/license/noneplugin/nonebot-plugin-memes" alt="license">
-  <img src="https://img.shields.io/badge/python-3.7.3+-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/nonebot-2.0.0b4+-red.svg" alt="NoneBot">
   <a href="https://pypi.org/project/nonebot-plugin-memes">
     <img src="https://badgen.net/pypi/v/nonebot-plugin-memes" alt="pypi">
@@ -63,9 +63,9 @@ pip install nonebot_plugin_memes
 > 以下配置项可在 `.env.*` 文件中设置，具体参考 [NoneBot 配置方式](https://v2.nonebot.dev/docs/tutorial/configuration#%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F)
 
 #### `memes_command_start`
- - 类型：`str`
- - 默认：`""`
- - 说明：命令开始字符，为空则使用Nonebot设置中的`command_start`
+ - 类型：`List[str]`
+ - 默认：`[""]`
+ - 说明：命令起始标记，默认包含空字符串
 
 #### `memes_resource_url`
  - 类型：`str`
@@ -87,7 +87,7 @@ pip install nonebot_plugin_memes
 发送“文字表情包”显示下图的列表：
 
 <div align="left">
-  <img src="https://s2.loli.net/2022/10/30/QUxOBbiD4s8mG3R.jpg" width="500" />
+  <img src="https://s2.loli.net/2022/11/29/496PAMb25GgTuyq.jpg" width="500" />
 </div>
 
 
